@@ -24,6 +24,6 @@ if (mysqli_num_rows($rs) <= 0) {
     $_SESSION['userType'] = $rc['TableName'];
     mysqli_free_result($rs);
     mysqli_close($conn);
-    header("Location:index.html");
+    header("Location:index2.php");
     exit();
 }
