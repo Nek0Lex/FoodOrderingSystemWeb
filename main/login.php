@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once("connection/conn.php");
+require_once("Connections/conn.php");
 $userId = $_POST['inputUserId'];
 $password = $_POST['inputPassword'];
 
@@ -24,6 +24,12 @@ if (mysqli_num_rows($rs) <= 0) {
     $_SESSION['userType'] = $rc['TableName'];
     mysqli_free_result($rs);
     mysqli_close($conn);
-    header("Location:index2.php");
+
+    if ($_SESSION['userType'] == 'Suppliers') {
+        header("Location:index.html");
+    }
+    if ($_SESSION['userType'] == 'WarehouseStaff') {
+        header("Location:index2.php");
+    }
     exit();
 }
