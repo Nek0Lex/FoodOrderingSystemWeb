@@ -284,7 +284,7 @@ session_start();
                                     </div>
                                     <div class="form-group">
                                         <label>Amount</label>
-                                        <input class="form-control" id="amount" name="amount" placeholder="Enter Amount">
+                                        <input class="form-control" type="number" id="amount" name="amount" placeholder="Enter Amount">
                                     </div>
                                     <input type="submit" id="submit" class="btn btn-primary" value="Confirm" onclick="display_alert()">
                                 </form>

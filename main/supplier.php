@@ -167,8 +167,7 @@ $name = $rc['Name'];
                                 </div>
                             </div>
                         </div>
-                        <a href="">
-                            <!--                            TODO-->
+                        <a href="supplierStockR.php">
                             <div class="panel-footer">
                                 <span class="pull-left">Remove old stocks</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>

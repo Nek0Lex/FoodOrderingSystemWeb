@@ -110,7 +110,7 @@ session_start();
                     <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
                         <i class="glyphicon glyphicon-align-left"></i>
                     </button>
-                    <a href="supplier.php">View order</a>
+                    <a href="supplier.php">New Stocks</a>
                 </h1>
 
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -133,7 +133,7 @@ session_start();
                                 </div>
                             </div>
                         </div>
-                        <a href="#">
+                        <a href="supplierOrder.php">
                             <div class="panel-footer">
                                 <span class="pull-left">List approved orders</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -175,7 +175,7 @@ session_start();
                                 </div>
                             </div>
                         </div>
-                        <a href="supplierStock.php">
+                        <a href="#">
                             <div class="panel-footer">
                                 <span class="pull-left">Add the stock that is available</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -211,7 +211,7 @@ session_start();
                 <div class="col">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <i class="fa fa-bar-chart-o fa-fw"></i> Delivery orders
+                            <i class="fa fa-bar-chart-o fa-fw"></i> Supplier Stock
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
@@ -221,35 +221,28 @@ session_start();
                                         <table id="suppliertable" class="table table-bordered table-hover table-striped">
                                             <thead>
                                             <tr>
-                                                <th>OrderId</th>
+                                                <th>SupplierStockId</th>
+                                                <th>StockId</th>
                                                 <th>StockName</th>
-                                                <th>OrdersAmount</th>
-                                                <th>PurchaseDate</th>
-                                                <th>DeliveryDate</th>
-                                                <th>ReceivedDate</th>
+                                                <th>Amount</th>
+                                                <th>Delete Action</th>
                                             </tr>
-
                                             </thead>
                                             <tbody>
                                             <?php
                                             require_once("Connections/conn.php");
-                                            $query = "SELECT OrderId, Stock.Name StockName, Orders.Amount OrdersAmount, PurchaseDate, DeliveryDate, ReceivedDate FROM Orders 
-                                                        INNER JOIN SupplierStock ON Orders.SupplierStockId = SupplierStock.SupplierStockId 
-                                                        INNER JOIN Suppliers ON SupplierStock.SupplierId = Suppliers.SupplierId 
-                                                        INNER JOIN Stock ON SupplierStock.StockId = Stock.StockId
-                                                        WHERE Suppliers.SupplierId='{$_SESSION['userId']}' AND 
-                                                        Approved = 1";
+                                            $query = "SELECT SupplierStockId, SupplierStock.StockId, Stock.Name StockName, Amount FROM SupplierStock 
+                                                        INNER JOIN Stock ON SupplierStock.StockId = Stock.StockId 
+                                                        WHERE SupplierId='{$_SESSION['userId']}'";
                                             $rs = mysqli_query($conn, $query) or die(mysqli_error($conn));
                                             while ($rc = mysqli_fetch_assoc($rs)) {
-                                                echo
-                                                "<tr>
-                                                     <td>{$rc['OrderId']}</td>
-                                                     <td>{$rc['StockName']}</td>
-                                                     <td>{$rc['OrdersAmount']}</td>
-                                                     <td>{$rc['PurchaseDate']}</td>
-                                                     <td>{$rc['DeliveryDate']}</td>
-                                                     <td>{$rc['ReceivedDate']}</td>
-                                                 </tr>";
+                                                echo "<tr>
+                                                            <td>{$rc['SupplierStockId']}</td>
+                                                            <td>{$rc['StockId']}</td>
+                                                            <td>{$rc['StockName']}</td>
+                                                            <td>{$rc['Amount']}</td>
+                                                            <td><a href='supplierStockRemove.php?id=".$rc['SupplierStockId']."'><button type='button' class='btn btn-primary' style='background-color: rgb(114,137,218)'>Delete</button></a></td>
+                                                        </tr>";
                                             }
                                             ?>
                                             </tbody>

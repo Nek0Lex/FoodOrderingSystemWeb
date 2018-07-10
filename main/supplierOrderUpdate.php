@@ -245,8 +245,11 @@ session_start();
                                                      <td>{$rc['StockName']}</td>
                                                      <td>{$rc['OrdersAmount']}</td>
                                                      <td>{$rc['PurchaseDate']}</td>
-                                                     <td>{$rc['DeliveryDate']}</td>
+                                                     <td><form action='supplierOrderUpdateDate.php' method='post'>
+                                                     <input class='form-control' id='DeliveryDate' name='DeliveryDate' type='date' value={$rc['DeliveryDate']}>
+                                                     <input class='form-control' id='OrderId' name='OrderId' type='hidden' value={$rc['OrderId']}></td>
                                                      <td>{$rc['ReceivedDate']}</td>
+                                                     <td><button type='submit' class='btn btn-primary' style='background-color: rgb(114,137,218)' >Modify</button></form></td>
                                                  </tr>";
                                             }
                                             ?>
