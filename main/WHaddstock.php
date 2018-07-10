@@ -241,7 +241,7 @@ session_start();
                                         <label>Amount</label>
                                         <input class="form-control" id="amount" name="amount" placeholder="Enter Amount">
                                     </div>
-                                    <button type="submit" id="submit" class="btn btn-primary"><a href="WHaddstock_process.php">Confirm</a></button>
+                                    <input type="submit" id="submit" class="btn btn-primary"><a href="WHaddstock_process.php"></a></input>
                                 </form>
                             </div>
                         </div>
