@@ -240,8 +240,16 @@ session_start();
                                         <label>Amount</label>
                                         <input class="form-control" id="amount" name="amount" placeholder="Enter Amount">
                                     </div>
-                                    <input type="submit" id="submit" class="btn btn-primary"><a href="WHaddstock_process.php"></a></input>
+                                    <input type="submit" id="submit" class="btn btn-primary" value="Confirm" onclick="display_alert()">
                                 </form>
+                                <script>
+                                    function display_alert()
+                                    {
+                                        var amountCheck = document.forms["addStock"]["amount"].value;
+                                        if (amountCheck == null)
+                                            alert("Amount cant be empty!");
+                                    }
+                                </script>
                             </div>
                         </div>
                     </div>

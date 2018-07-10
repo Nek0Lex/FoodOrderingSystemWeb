@@ -288,7 +288,7 @@ $name = $rc['Name'];
                                             <tbody>
                                             <?php
                                             require_once("Connections/conn.php");
-                                            $query = "SELECT * FROM warehousestock";
+                                            $query = "SELECT * FROM warehousestock WHERE WarehouseStaffId = '{$_SESSION['userId']}'";
                                             $rs = mysqli_query($conn, $query) or die(mysqli_error($conn));
                                             while ($rc = mysqli_fetch_assoc($rs)) {
                                                 echo "<tr>

@@ -1,43 +1,35 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet"
           href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <!-- Our Custom CSS -->
     <link rel="stylesheet"
           href="style2.css">
-    <!-- Scrollbar Custom CSS -->
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
-
     <link rel="stylesheet"
           href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
-
     <link rel="stylesheet"
           href="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js">
-
     <link rel="stylesheet"
           href="css/index.css">
-
     <!-- Custom CSS -->
     <link rel="stylesheet"
           href="dist/css/sb-admin-2.css">
-
     <!-- Custom Fonts -->
     <link rel="stylesheet" type="text/css" \
           href="vendor/font-awesome/css/font-awesome.min.css">
-
     <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
     <!-- Bootstrap Js CDN -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <!-- jQuery Custom Scroller CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
-
     <script src="vendor/datatables/js/jquery.dataTables.min.js"></script>
     <script src="vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
     <script src="vendor/datatables-responsive/dataTables.responsive.js"></script>
@@ -212,36 +204,44 @@
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
-                            <div class="row">
+                            <div class="col-lg-14">
                                 <div class="col">
                                     <div class="table-responsive">
                                         <table id="warehousetable" class="table table-bordered table-hover table-striped">
                                             <thead>
                                             <tr>
-                                                <th>WarehouseStockId</th>
-                                                <th>WarehouseStaffId</th>
-                                                <th>StockId</th>
+                                                <th>Warehouse Stock ID</th>
                                                 <th>Amount</th>
+                                                <th>Stock Name</th>
                                             </tr>
                                             </thead>
                                             <tbody>
                                             <?php
                                             require_once("Connections/conn.php");
-                                            $query = "SELECT * FROM warehousestock";
+                                            $query = "SELECT WarehouseStockId, Amount, Name 
+                                                          FROM WarehouseStock INNER JOIN STOCK 
+                                                          ON WarehouseStock.StockId = Stock.StockId 
+                                                          WHERE WarehouseStock.WarehouseStaffId = '{$_SESSION['userId']}'";
                                             $rs = mysqli_query($conn, $query) or die(mysqli_error($conn));
-                                            while ($rc = mysqli_fetch_assoc($rs)) {
-                                                $query = "SELECT * FROM warehousestock";
-
-                                            }
                                             while ($rc = mysqli_fetch_assoc($rs)) {
                                                 echo "<tr>
                                                         <td>{$rc['WarehouseStockId']}</td>
-                                                        <td>{$rc['WarehouseStaffId']}</td>
-                                                        <td>{$rc['StockId']}</td>
                                                         <td>{$rc['Amount']}</td>
+                                                        <td>{$rc['Name']}</td>
+                                                        <td>Delete</td>
                                                     </tr>";
                                             }
                                             ?>
+<!--                                            while ($rc = mysqli_fetch_assoc($rs)) {-->
+<!--                                            $query = "SELECT Name = "-->
+<!--                                            echo "<tr>-->
+<!--                                                <td>{$rc['WarehouseStockId']}</td>-->
+<!--                                                <td>{$rc['WarehouseStaffId']}</td>-->
+<!--                                                <td>{$rc['StockId']}</td>-->
+<!--                                                <td>{$rc['Amount']}</td>-->
+<!--                                                <td>Delete</td>-->
+<!--                                            </tr>";-->
+<!--                                            }-->
                                             </tbody>
                                         </table>
                                     </div>

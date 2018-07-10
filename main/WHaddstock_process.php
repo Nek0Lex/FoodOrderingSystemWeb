@@ -17,10 +17,13 @@ $query = "SELECT StockId FROM stock WHERE Name = '$stockname'";
 $rs = mysqli_query($conn, $query) or die(mysqli_error($conn));
 $rc = mysqli_fetch_assoc($rs);
 $warehouseStockId =$_SESSION['userId'].$rc['StockId'];
-echo $stockname."<br>";
-echo $amount."<br>";
-echo $_SESSION['userId']."<br>";
-echo $warehouseStockId."<br>";
+$insertquery = "INSERT INTO warehousestock (WarehouseStockId, WarehouseStaffId, StockId, Amount) VALUES ($warehouseStockId, {$_SESSION['userId']}, {$rc['StockId']}, $amount);";
+if (!mysqli_query($conn, $insertquery)){
+    echo "<script language='JavaScript'>
+    window.alert('Item has beed added');
+    window.location.href='WHaddstock.php';
+    </script>";
+}
 ?>
 </body>
 </html>
