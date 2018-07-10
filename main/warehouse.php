@@ -6,8 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>Collapsible sidebar using Bootstrap 3</title>
-
     <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <!-- Our Custom CSS -->
@@ -51,9 +49,7 @@
                     <a href="#">contacto</a>
                 </li>
 
-
             </ul>
-
 
         </nav>
 
@@ -72,7 +68,7 @@
                     </div>
 -->
 
-                    <a class="navbar-brand" href="index.php" style="color: aliceblue">SB Admin v2.0</a>
+                    <a class="navbar-brand" href="warehouse.php" style="color: aliceblue">SB Admin v2.0</a>
                 </div>
 
             </nav>
@@ -98,7 +94,7 @@
                             <div class="panel-heading">
                                 <div class="row">
                                     <div class="col-xs-3">
-                                        <i class="fa fa-comments fa-5x"></i>
+                                        <i class="fa fa-folder-open fa-5x"></i>
                                     </div>
                                     <div class="col-xs-9 text-right">
                                         <div class="huge">Comments</div>
@@ -122,11 +118,11 @@
                                         <i class="fa fa-tasks fa-5x"></i>
                                     </div>
                                     <div class="col-xs-9 text-right">
-                                        <div class="huge">Tasks</div>
+                                        <div class="huge">Modify</div>
                                     </div>
                                 </div>
                             </div>
-                            <a href="#">
+                            <a href="modifyAmount.php">
                                 <div class="panel-footer">
                                     <span class="pull-left">View Details</span>
                                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -631,7 +627,6 @@
 
     <!-- Custom CSS -->
     <link href="dist/css/sb-admin-2.css" rel="stylesheet">
-
 
     <!-- Custom Fonts -->
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">

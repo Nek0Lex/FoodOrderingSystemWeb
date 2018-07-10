@@ -26,10 +26,10 @@ if (mysqli_num_rows($rs) <= 0) {
     mysqli_close($conn);
 
     if ($_SESSION['userType'] == 'Suppliers') {
-        header("Location:index.php");
+        header("Location:warehouse.php");
     }
     if ($_SESSION['userType'] == 'WarehouseStaff') {
-        header("Location:index2.php");
+        header("Location:supplier.php");
     }
     exit();
 }
