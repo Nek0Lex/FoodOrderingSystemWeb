@@ -175,7 +175,7 @@ session_start();
                                 </div>
                             </div>
                         </div>
-                        <a href="#">
+                        <a href="supplierStock.php">
                             <div class="panel-footer">
                                 <span class="pull-left">Add the stock that is available</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -198,7 +198,7 @@ session_start();
                         </div>
                         <a href="#">
                             <div class="panel-footer">
-                                <span class="pull-left">Remove old stock that is no longer avaliable</span>
+                                <span class="pull-left">Remove old stocks</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>
@@ -218,7 +218,7 @@ session_start();
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="table-responsive">
-                                        <table id="warehousetable" class="table table-bordered table-hover table-striped">
+                                        <table id="suppliertable" class="table table-bordered table-hover table-striped">
                                             <thead>
                                             <tr>
                                                 <th>OrderId</th>
@@ -236,7 +236,8 @@ session_start();
                                                         INNER JOIN SupplierStock ON Orders.SupplierStockId = SupplierStock.SupplierStockId 
                                                         INNER JOIN Suppliers ON SupplierStock.SupplierId = Suppliers.SupplierId 
                                                         INNER JOIN Stock ON SupplierStock.StockId = Stock.StockId
-                                                        WHERE Suppliers.SupplierId='{$_SESSION['userId']}'";
+                                                        WHERE Suppliers.SupplierId='{$_SESSION['userId']}' AND 
+                                                        Approved = 1";
                                             $rs = mysqli_query($conn, $query) or die(mysqli_error($conn));
                                             while ($rc = mysqli_fetch_assoc($rs)) {
                                                 echo

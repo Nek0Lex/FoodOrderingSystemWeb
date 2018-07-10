@@ -57,7 +57,7 @@ session_start();
 
     <script>
         $(document).ready(function () {
-            $('#warehousetable').DataTable();
+            $('#suppliertable').DataTable();
         });
     </script>
 
@@ -100,7 +100,7 @@ session_start();
         <nav class="navbar navbar-default navbar-static-top" role="navigation"
              style="margin-bottom: 0; background-color: rgb(54, 57, 62);">
             <div class="navbar-header">
-                <a class="navbar-brand" href="warehouse.php" style="color: aliceblue">SB Admin v2.0</a>
+                <a class="navbar-brand" href="supplier.php" style="color: aliceblue">SB Admin v2.0</a>
             </div>
         </nav>
 
@@ -110,7 +110,7 @@ session_start();
                     <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
                         <i class="glyphicon glyphicon-align-left"></i>
                     </button>
-                    <a href="warehouse.php">View order</a>
+                    <a href="supplier.php">New Stocks</a>
                 </h1>
 
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -129,13 +129,13 @@ session_start();
                                     <i class="fa fa-folder-open fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">View Order</div>
+                                    <div class="huge">Orders</div>
                                 </div>
                             </div>
                         </div>
-                        <a href="#">
+                        <a href="supplierOrder.php">
                             <div class="panel-footer">
-                                <span class="pull-left">List delivery orders</span>
+                                <span class="pull-left">List approved orders</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>
@@ -150,13 +150,13 @@ session_start();
                                     <i class="fa fa-tasks fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">Modify</div>
+                                    <div class="huge">Update</div>
                                 </div>
                             </div>
                         </div>
-                        <a href="WHmodifyAmount.php">
+                        <a href="supplierOrderUpdate.php">
                             <div class="panel-footer">
-                                <span class="pull-left">View Details</span>
+                                <span class="pull-left">Update the delivery date of orders</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>
@@ -177,7 +177,7 @@ session_start();
                         </div>
                         <a href="#">
                             <div class="panel-footer">
-                                <span class="pull-left">Add stock into warehouse</span>
+                                <span class="pull-left">Add the stock that is available</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>
@@ -198,7 +198,7 @@ session_start();
                         </div>
                         <a href="#">
                             <div class="panel-footer">
-                                <span class="pull-left">Remove old stock in warehouse</span>
+                                <span class="pull-left">Remove old stocks</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>
@@ -211,49 +211,91 @@ session_start();
                 <div class="col">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <i class="fa fa-bar-chart-o fa-fw"></i> Delivery orders
+                            <i class="fa fa-bar-chart-o fa-fw"></i> Supplier Stock
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="table-responsive">
-                                        <table id="warehousetable" class="table table-bordered table-hover table-striped">
+                                        <table id="suppliertable" class="table table-bordered table-hover table-striped">
                                             <thead>
                                             <tr>
-                                                <th>OrderId</th>
+                                                <th>SupplierStockId</th>
+                                                <th>StockId</th>
                                                 <th>StockName</th>
-                                                <th>OrdersAmount</th>
-                                                <th>PurchaseDate</th>
-                                                <th>DeliveryDate</th>
-                                                <th>ReceivedDate</th>
+                                                <th>Amount</th>
                                             </tr>
                                             </thead>
                                             <tbody>
                                             <?php
                                             require_once("Connections/conn.php");
-                                            $query = "SELECT OrderId, Stock.Name StockName, Orders.Amount OrdersAmount, PurchaseDate, DeliveryDate, ReceivedDate FROM Orders 
-                                                        INNER JOIN SupplierStock ON Orders.SupplierStockId = SupplierStock.SupplierStockId 
-                                                        INNER JOIN Suppliers ON SupplierStock.SupplierId = Suppliers.SupplierId 
-                                                        INNER JOIN Stock ON SupplierStock.StockId = Stock.StockId
-                                                        WHERE Suppliers.SupplierId='{$_SESSION['userId']}'";
+                                            $query = "SELECT SupplierStockId, SupplierStock.StockId, Stock.Name StockName, Amount FROM SupplierStock 
+                                                        INNER JOIN Stock ON SupplierStock.StockId = Stock.StockId 
+                                                        WHERE SupplierId='{$_SESSION['userId']}'";
                                             $rs = mysqli_query($conn, $query) or die(mysqli_error($conn));
                                             while ($rc = mysqli_fetch_assoc($rs)) {
-                                                echo
-                                                "<tr>
-                                                     <td>{$rc['OrderId']}</td>
-                                                     <td>{$rc['StockName']}</td>
-                                                     <td>{$rc['OrdersAmount']}</td>
-                                                     <td>{$rc['PurchaseDate']}</td>
-                                                     <td>{$rc['DeliveryDate']}</td>
-                                                     <td>{$rc['ReceivedDate']}</td>
-                                                 </tr>";
+                                                echo "<tr>
+                                                            <td>{$rc['SupplierStockId']}</td>
+                                                            <td>{$rc['StockId']}</td>
+                                                            <td>{$rc['StockName']}</td>
+                                                            <td>{$rc['Amount']}</td>
+                                                        </tr>";
                                             }
                                             ?>
                                             </tbody>
                                         </table>
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-14">
+                <div class="col">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <i class="fa fa-plus fa-fw"></i> Add Supplier Stock
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="col-lg-14">
+                                <form role="form" method="post" action="supplierStockAdd.php" id="addStock">
+                                    <div class="form-group">
+                                        <label>Stock Name</label>
+                                        <select class="form-control" id="stockname" name="stockname">
+                                            <?php
+                                            require_once("Connections/conn.php");
+                                            $query = "SELECT Name FROM stock";
+                                            $rs = mysqli_query($conn, $query) or die(mysqli_error($conn));
+                                            while ($rc = mysqli_fetch_assoc($rs)) {
+                                                $arr[] = $rc;
+                                                echo "<option value={$rc['Name']}>{$rc['Name']}</option>";
+                                            }
+                                            ?>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="disabledSelect">Staff ID</label>
+                                        <?php
+                                        echo "<input class='form-control' id='staffId' name='staffId' type='text' placeholder={$_SESSION['userId']} readonly='true'>";
+                                        ?>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Amount</label>
+                                        <input class="form-control" id="amount" name="amount" placeholder="Enter Amount">
+                                    </div>
+                                    <input type="submit" id="submit" class="btn btn-primary" value="Confirm" onclick="display_alert()">
+                                </form>
+                                <script>
+                                    function display_alert()
+                                    {
+                                        var amountCheck = document.forms["addStock"]["amount"].value;
+                                        if (amountCheck == null)
+                                            alert("Amount cant be empty!");
+                                    }
+                                </script>
                             </div>
                         </div>
                     </div>

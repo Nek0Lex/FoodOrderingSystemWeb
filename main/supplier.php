@@ -146,8 +146,7 @@ $name = $rc['Name'];
                                 </div>
                             </div>
                         </div>
-                        <a href="">
-                            <!--                            TODO-->
+                        <a href="supplierStock.php">
                             <div class="panel-footer">
                                 <span class="pull-left">Add the stock that is available</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -171,7 +170,7 @@ $name = $rc['Name'];
                         <a href="">
                             <!--                            TODO-->
                             <div class="panel-footer">
-                                <span class="pull-left">Remove old stock that is no longer avaliable</span>
+                                <span class="pull-left">Remove old stocks</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>

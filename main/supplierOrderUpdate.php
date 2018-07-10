@@ -57,7 +57,7 @@ session_start();
 
     <script>
         $(document).ready(function () {
-            $('#warehousetable').DataTable();
+            $('#suppliertable').DataTable();
         });
     </script>
 
@@ -110,7 +110,7 @@ session_start();
                     <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
                         <i class="glyphicon glyphicon-align-left"></i>
                     </button>
-                    <a href="supplier.php">View order</a>
+                    <a href="supplier.php">Update</a>
                 </h1>
 
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -154,7 +154,7 @@ session_start();
                                 </div>
                             </div>
                         </div>
-                        <a href="supplierOrderUpdate.php">
+                        <a href="#">
                             <div class="panel-footer">
                                 <span class="pull-left">Update the delivery date of orders</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -175,9 +175,9 @@ session_start();
                                 </div>
                             </div>
                         </div>
-                        <a href="#">
+                        <a href="supplierStock.php">
                             <div class="panel-footer">
-                                <span class="pull-left">Add stock into warehouse</span>
+                                <span class="pull-left">Add the stock that is available</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>
@@ -198,7 +198,7 @@ session_start();
                         </div>
                         <a href="#">
                             <div class="panel-footer">
-                                <span class="pull-left">Remove old stock in warehouse</span>
+                                <span class="pull-left">Remove old stocks</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>
@@ -218,7 +218,7 @@ session_start();
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="table-responsive">
-                                        <table id="warehousetable" class="table table-bordered table-hover table-striped">
+                                        <table id="suppliertable" class="table table-bordered table-hover table-striped">
                                             <thead>
                                             <tr>
                                                 <th>OrderId</th>
