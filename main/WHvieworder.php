@@ -232,10 +232,9 @@
                                             <tbody>
                                             <?php
                                             require_once("Connections/conn.php");
-                                            $query = "SELECT * FROM warehousestock";
+                                            $query = "SELECT * FROM orders";
                                             $rs = mysqli_query($conn, $query) or die(mysqli_error($conn));
                                             while ($rc = mysqli_fetch_assoc($rs)) {
-                                                $nameAdapter = "SELECT Name FROM stock WHERE StockId = {$rc['StockId']}";
                                                 echo "<tr>
                                                         <td>{$rc['OrderId']}</td>
                                                         <td>{$rc['RestaurantId']}</td>
