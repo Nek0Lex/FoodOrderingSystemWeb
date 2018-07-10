@@ -219,7 +219,6 @@ session_start();
                                     <div class="form-group">
                                         <label>Stock Name</label>
                                         <select class="form-control" id="stockname" name="stockname">
-                                            <option value=0><---Select Stock---></option>
                                             <?php
                                             require_once("Connections/conn.php");
                                             $query = "SELECT Name FROM stock";

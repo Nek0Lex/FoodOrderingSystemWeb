@@ -12,10 +12,15 @@
 session_start();
 $stockname = $_POST['stockname'];
 $amount = $_POST['amount'];
-echo $stockname;
-echo $amount;
-echo $_SESSION['userId'];
+require_once("Connections/conn.php");
+$query = "SELECT StockId FROM stock WHERE Name = '$stockname'";
+$rs = mysqli_query($conn, $query) or die(mysqli_error($conn));
+$rc = mysqli_fetch_assoc($rs);
+$warehouseStockId =$_SESSION['userId'].$rc['StockId'];
+echo $stockname."<br>";
+echo $amount."<br>";
+echo $_SESSION['userId']."<br>";
+echo $warehouseStockId."<br>";
 ?>
-<button type="button" id="back" class="btn btn-primary"><a href="WHaddstock.php">Confirm</a></button>
 </body>
 </html>
