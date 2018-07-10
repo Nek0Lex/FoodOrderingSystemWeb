@@ -65,7 +65,9 @@ session_start();
 
     <script>
         $( function() {
-            $( "#datepicker" ).datepicker();
+            $( "#datepicker" ).datepicker({
+                dateFormat: "yy-mm-dd"
+            });
         } );
     </script>
 
@@ -236,6 +238,7 @@ session_start();
                                                 <th>PurchaseDate</th>
                                                 <th>DeliveryDate</th>
                                                 <th>ReceivedDate</th>
+                                                <th></th>
                                             </tr>
                                             </thead>
                                             <tbody>
@@ -247,15 +250,24 @@ session_start();
                                                     INNER JOIN Stock ON SupplierStock.StockId = Stock.StockId
                                                     WHERE WarehouseStaffId = '{$_SESSION['userId']}'";
                                             $rs = mysqli_query($conn, $query) or die(mysqli_error($conn));
+                                            $status = null;
+                                            $datestatus = null;
                                             while ($rc = mysqli_fetch_assoc($rs)) {
+                                                if ($rc['ReceivedDate'] != null){
+                                                    $status = "hidden";
+                                                    $datestatus = "readonly='true' disabled value='{$rc['ReceivedDate']}'";
+                                                }
                                                 echo "<tr>
-                                                        <td>{$rc['OrderId']}</td>
+                                                        <form action='WHvieworder_process.php' method='post'>
+                                                        <td><input id='id' name='id' type='text' value='{$rc['OrderId']}' style='border: none' readonly></td>
                                                         <td>{$rc['StockName']}</td>
                                                         <td>{$rc['SuppliersName']}</td>
                                                         <td>{$rc['OrdersAmount']}</td>
-                                                        <td>{$rc['PurchaseDate']}</td>
-                                                        <td>{$rc['DeliveryDate']}</td>       
-                                                        <td><input type=\"text\" id=\"datepicker\"></td>                                                                                                   
+                                                        <td>{$rc['PurchaseDate']}</td>   
+                                                        <td>{$rc['DeliveryDate']}</td>                                                      
+                                                        <td><input type=\"text\" id=\"datepicker\" name='datepicker' $datestatus></td>
+                                                        <td><input type='submit' value='Confirm' $status></td>   
+                                                        </form>                                                                                                
                                                     </tr>";
                                             }
                                             ?>
