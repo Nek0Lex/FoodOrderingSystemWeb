@@ -26,7 +26,7 @@ if (mysqli_num_rows($rs) <= 0) {
     mysqli_close($conn);
 
     if ($_SESSION['userType'] == 'Suppliers') {
-        header("Location:index.html");
+        header("Location:index.php");
     }
     if ($_SESSION['userType'] == 'WarehouseStaff') {
         header("Location:index2.php");
