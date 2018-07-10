@@ -228,9 +228,7 @@ session_start();
                                                         <td>{$rc['WarehouseStockId']}</td>
                                                         <td>{$rc['Amount']}</td>
                                                         <td>{$rc['Name']}</td>
-                                                        <td>
-                                                        
-                                                        </td>
+                                                        <td><a href='WHremoveoldstock_process.php?id=".$rc['WarehouseStockId']."'><button type=\"button\" class=\"btn btn-primary\" style='background-color: rgb(114,137,218)'>Delete</button></a></td>
                                                     </tr>";
                                             }
                                             ?>
