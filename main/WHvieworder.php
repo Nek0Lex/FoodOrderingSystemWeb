@@ -40,7 +40,9 @@ session_start();
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <!-- jQuery Custom Scroller CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
-
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="vendor/datatables/js/jquery.dataTables.min.js"></script>
     <script src="vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
     <script src="vendor/datatables-responsive/dataTables.responsive.js"></script>
@@ -59,6 +61,12 @@ session_start();
         $(document).ready(function () {
             $('#warehousetable').DataTable();
         });
+    </script>
+
+    <script>
+        $( function() {
+            $( "#datepicker" ).datepicker();
+        } );
     </script>
 
 </head>
@@ -247,7 +255,7 @@ session_start();
                                                         <td>{$rc['OrdersAmount']}</td>
                                                         <td>{$rc['PurchaseDate']}</td>
                                                         <td>{$rc['DeliveryDate']}</td>       
-                                                        <td>{$rc['ReceivedDate']}</td>                                                                                                   
+                                                        <td><input type=\"text\" id=\"datepicker\"></td>                                                                                                   
                                                     </tr>";
                                             }
                                             ?>

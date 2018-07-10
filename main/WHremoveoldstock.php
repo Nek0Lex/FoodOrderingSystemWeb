@@ -46,7 +46,9 @@ session_start();
 
     <script>
         $(document).ready(function () {
-            $('#warehousetable').DataTable();
+            $('#warehousetable').DataTable({
+                select: true
+            });
         });
     </script>
 
