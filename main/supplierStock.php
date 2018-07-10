@@ -57,7 +57,7 @@ session_start();
 
     <script>
         $(document).ready(function () {
-            $('#suppliertable').DataTable();
+            $('#warehousetable').DataTable();
         });
     </script>
 
@@ -100,7 +100,7 @@ session_start();
         <nav class="navbar navbar-default navbar-static-top" role="navigation"
              style="margin-bottom: 0; background-color: rgb(54, 57, 62);">
             <div class="navbar-header">
-                <a class="navbar-brand" href="supplier.php" style="color: aliceblue">SB Admin v2.0</a>
+                <a class="navbar-brand" href="warehouse.php" style="color: aliceblue">SB Admin v2.0</a>
             </div>
         </nav>
 
@@ -110,7 +110,7 @@ session_start();
                     <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
                         <i class="glyphicon glyphicon-align-left"></i>
                     </button>
-                    <a href="supplier.php">View order</a>
+                    <a href="warehouse.php">View order</a>
                 </h1>
 
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -129,13 +129,13 @@ session_start();
                                     <i class="fa fa-folder-open fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">Orders</div>
+                                    <div class="huge">View Order</div>
                                 </div>
                             </div>
                         </div>
                         <a href="#">
                             <div class="panel-footer">
-                                <span class="pull-left">List approved orders</span>
+                                <span class="pull-left">List delivery orders</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>
@@ -150,13 +150,13 @@ session_start();
                                     <i class="fa fa-tasks fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">Update</div>
+                                    <div class="huge">Modify</div>
                                 </div>
                             </div>
                         </div>
-                        <a href="supplierOrderUpdate.php">
+                        <a href="WHmodifyAmount.php">
                             <div class="panel-footer">
-                                <span class="pull-left">Update the delivery date of orders</span>
+                                <span class="pull-left">View Details</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>
@@ -177,7 +177,7 @@ session_start();
                         </div>
                         <a href="#">
                             <div class="panel-footer">
-                                <span class="pull-left">Add the stock that is available</span>
+                                <span class="pull-left">Add stock into warehouse</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>
@@ -198,7 +198,7 @@ session_start();
                         </div>
                         <a href="#">
                             <div class="panel-footer">
-                                <span class="pull-left">Remove old stock that is no longer avaliable</span>
+                                <span class="pull-left">Remove old stock in warehouse</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>

@@ -57,7 +57,7 @@ session_start();
 
     <script>
         $(document).ready(function () {
-            $('#suppliertable').DataTable();
+            $('#warehousetable').DataTable();
         });
     </script>
 
@@ -133,7 +133,7 @@ session_start();
                                 </div>
                             </div>
                         </div>
-                        <a href="#">
+                        <a href="supplierOrder.php">
                             <div class="panel-footer">
                                 <span class="pull-left">List approved orders</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -177,7 +177,7 @@ session_start();
                         </div>
                         <a href="#">
                             <div class="panel-footer">
-                                <span class="pull-left">Add the stock that is available</span>
+                                <span class="pull-left">Add stock into warehouse</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>
@@ -198,7 +198,7 @@ session_start();
                         </div>
                         <a href="#">
                             <div class="panel-footer">
-                                <span class="pull-left">Remove old stock that is no longer avaliable</span>
+                                <span class="pull-left">Remove old stock in warehouse</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>

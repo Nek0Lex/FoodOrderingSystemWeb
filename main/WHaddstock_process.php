@@ -26,7 +26,8 @@ if (!mysqli_query($conn, $insertquery)){
 } else {
     echo "<script language='JavaScript'>
     window.alert('Item added successfully');
-    window.location.href='WHaddstock.php'";
+    window.location.href='WHaddstock.php';
+    </script>";
 }
 ?>
 </body>
