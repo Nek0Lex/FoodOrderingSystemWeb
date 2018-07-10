@@ -233,10 +233,6 @@
                                             $query = "SELECT * FROM warehousestock";
                                             $rs = mysqli_query($conn, $query) or die(mysqli_error($conn));
                                             while ($rc = mysqli_fetch_assoc($rs)) {
-                                                $query = "SELECT * FROM warehousestock";
-
-                                            }
-                                            while ($rc = mysqli_fetch_assoc($rs)) {
                                                 echo "<tr>
                                                         <td>{$rc['WarehouseStockId']}</td>
                                                         <td>{$rc['WarehouseStaffId']}</td>
