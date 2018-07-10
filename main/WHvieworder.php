@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 
@@ -219,11 +222,9 @@
                                             <thead>
                                             <tr>
                                                 <th>OrderId</th>
-                                                <th>RestaurantId</th>
-                                                <th>SupplierStockId</th>
-                                                <th>WarehouseStaffId</th>
-                                                <th>Amount</th>
-                                                <th>Approved</th>
+                                                <th>StockName</th>
+                                                <th>SuppliersName</th>
+                                                <th>OrdersAmount</th>
                                                 <th>PurchaseDate</th>
                                                 <th>DeliveryDate</th>
                                                 <th>ReceivedDate</th>
@@ -232,16 +233,18 @@
                                             <tbody>
                                             <?php
                                             require_once("Connections/conn.php");
-                                            $query = "SELECT * FROM orders";
+                                            $query = "SELECT OrderId, Stock.Name StockName, Suppliers.Name SuppliersName, Orders.Amount OrdersAmount, PurchaseDate, DeliveryDate, ReceivedDate FROM Orders 
+                                                    INNER JOIN SupplierStock ON Orders.SupplierStockId = SupplierStock.SupplierStockId 
+                                                    INNER JOIN Suppliers ON SupplierStock.SupplierId = Suppliers.SupplierId 
+                                                    INNER JOIN Stock ON SupplierStock.StockId = Stock.StockId
+                                                    WHERE WarehouseStaffId = '{$_SESSION['userId']}'";
                                             $rs = mysqli_query($conn, $query) or die(mysqli_error($conn));
                                             while ($rc = mysqli_fetch_assoc($rs)) {
                                                 echo "<tr>
                                                         <td>{$rc['OrderId']}</td>
-                                                        <td>{$rc['RestaurantId']}</td>
-                                                        <td>{$rc['SupplierStockId']}</td>
-                                                        <td>{$rc['ManagerId']}</td>
-                                                        <td>{$rc['WarehouseStaffId']}</td>
-                                                        <td>{$rc['Amount']}</td>
+                                                        <td>{$rc['StockName']}</td>
+                                                        <td>{$rc['SuppliersName']}</td>
+                                                        <td>{$rc['OrdersAmount']}</td>
                                                         <td>{$rc['PurchaseDate']}</td>
                                                         <td>{$rc['DeliveryDate']}</td>       
                                                         <td>{$rc['ReceivedDate']}</td>                                                                                                   
