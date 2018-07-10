@@ -1,6 +1,3 @@
-<?php
-session_start();
-?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,7 +20,7 @@ session_start();
     <link rel="stylesheet"
           href="dist/css/sb-admin-2.css">
     <!-- Custom Fonts -->
-    <link rel="stylesheet" type="text/css" \
+    <link rel="stylesheet" type="text/css"
           href="vendor/font-awesome/css/font-awesome.min.css">
     <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
     <!-- Bootstrap Js CDN -->
@@ -53,7 +50,6 @@ session_start();
 </head>
 
 <body>
-
 <div class="wrapper" style="background-color: rgb(47, 49, 54)">
     <nav id="sidebar" style="background-color: rgb(47, 49, 54)">
         <div class="sidebar-header" style="background-color: rgb(32, 34, 37)">
