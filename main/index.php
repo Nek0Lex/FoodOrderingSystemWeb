@@ -250,7 +250,7 @@
                                                 </thead>
                                                 <tbody>
                                                 <?php
-                                                    $conn = mysqli_connect("localhost", "root", "", "itp4513_1718") or die(mysqli_connect_error());
+                                                    require_once("Connections/conn.php");
                                                     $query = "SELECT * FROM warehousestock";
                                                     $rs = mysqli_query($conn, $query) or die(mysqli_error($conn));
                                                     while ($rc = mysqli_fetch_assoc($rs)){
@@ -288,7 +288,7 @@
                                                 </thead>
                                                 <tbody>
                                                 <?php
-                                                $conn = mysqli_connect("localhost", "root", "", "itp4513_1718") or die(mysqli_connect_error());
+                                                require_once("Connections/conn.php");
                                                 $query = "SELECT * FROM warehousestock";
                                                 $rs = mysqli_query($conn, $query) or die(mysqli_error($conn));
                                                 while ($rc = mysqli_fetch_assoc($rs)){
