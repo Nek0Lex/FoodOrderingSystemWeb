@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -209,6 +212,7 @@
                                                 <th>Warehouse Stock ID</th>
                                                 <th>Amount</th>
                                                 <th>Stock Name</th>
+                                                <th>Delete Action</th>
                                             </tr>
                                             </thead>
                                             <tbody>
@@ -224,7 +228,9 @@
                                                         <td>{$rc['WarehouseStockId']}</td>
                                                         <td>{$rc['Amount']}</td>
                                                         <td>{$rc['Name']}</td>
-                                                        <td>Delete</td>
+                                                        <td>
+                                                        
+                                                        </td>
                                                     </tr>";
                                             }
                                             ?>
