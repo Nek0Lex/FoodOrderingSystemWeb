@@ -27,14 +27,14 @@ $name = $rc['Name'];
 
 <body>
 
-<div class="wrapper">
+<div class="wrapper" style="background-color: rgb(47, 49, 54)">
     <!-- Sidebar Holder -->
-    <nav id="sidebar">
-        <div class="sidebar-header">
+    <nav id="sidebar" style="background-color: rgb(47, 49, 54)">
+        <div class="sidebar-header" style="background-color: rgb(32, 34, 37)">
             <h3>Header as you want </h3>
         </div>
 
-        <ul class="list-unstyled components">
+        <ul class="list-unstyled components" style="background-color: rgb(47, 49, 54); border-bottom-width: 0px">
             <p>Dummy Heading</p>
             <li class="active">
                 <a href="#menu">Animación</a>
@@ -64,10 +64,10 @@ $name = $rc['Name'];
 
     <!-- Page Content Holder -->
     <div id="content"
-         style="background: #394d68;">
+         style="background: rgb(47, 49, 54);">
 
         <nav class="navbar navbar-default navbar-static-top" role="navigation"
-             style="margin-bottom: 0; background-color: #394d68;">
+             style="margin-bottom: 0; background-color: rgb(47, 49, 54);">
 
             <div class="navbar-header">
                 <a class="navbar-brand" href="warehouse.php" style="color: aliceblue">SB Admin v2.0</a>
@@ -81,7 +81,7 @@ $name = $rc['Name'];
                     <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
                         <i class="glyphicon glyphicon-align-left"></i>
                     </button>
-                    Dashboard
+                    <a href="warehouse.php">Dashboard</a>
                 </h1>
 
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -100,13 +100,13 @@ $name = $rc['Name'];
                                     <i class="fa fa-folder-open fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">Comments</div>
+                                    <div class="huge">View Order</div>
                                 </div>
                             </div>
                         </div>
-                        <a href="#">
+                        <a href="WHvieworder.php">
                             <div class="panel-footer">
-                                <span class="pull-left">View Details</span>
+                                <span class="pull-left">List delivery orders</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>
@@ -125,9 +125,9 @@ $name = $rc['Name'];
                                 </div>
                             </div>
                         </div>
-                        <a href="modifyAmount.php">
+                        <a href="WHmodifyAmount.php">
                             <div class="panel-footer">
-                                <span class="pull-left">View Details</span>
+                                <span class="pull-left">Modify the stock amount in warehouse</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>
@@ -142,13 +142,13 @@ $name = $rc['Name'];
                                     <i class="fa fa-shopping-cart fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">Orders</div>
+                                    <div class="huge">New Stocks</div>
                                 </div>
                             </div>
                         </div>
-                        <a href="#">
+                        <a href="WHaddstock.php">
                             <div class="panel-footer">
-                                <span class="pull-left">View Details</span>
+                                <span class="pull-left">Add stock into warehouse</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>
@@ -163,13 +163,13 @@ $name = $rc['Name'];
                                     <i class="fa fa-support fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">Tickets</div>
+                                    <div class="huge">Remove</div>
                                 </div>
                             </div>
                         </div>
-                        <a href="#">
+                        <a href="WHremoveoldstock.php">
                             <div class="panel-footer">
-                                <span class="pull-left">View Details</span>
+                                <span class="pull-left">Remove old stock in warehouses</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>

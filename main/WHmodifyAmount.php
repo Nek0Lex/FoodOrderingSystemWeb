@@ -65,7 +65,7 @@
 
 <body>
 
-<div class="wrapper" style="background-color: rgb(47, 49, 54)"">
+<div class="wrapper" style="background-color: rgb(47, 49, 54)">
     <nav id="sidebar" style="background-color: rgb(47, 49, 54)">
         <div class="sidebar-header" style="background-color: rgb(32, 34, 37)">
             <h3>Header as you want </h3>
@@ -110,7 +110,7 @@
                     <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
                         <i class="glyphicon glyphicon-align-left"></i>
                     </button>
-                    Dashboard
+                    <a href="warehouse.php">Modify Stock</a>
                 </h1>
 
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -154,7 +154,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="modifyAmount.php">
+                        <a href="WHmodifyAmount.php">
                             <div class="panel-footer">
                                 <span class="pull-left">View Details</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -232,6 +232,10 @@
                                             require_once("Connections/conn.php");
                                             $query = "SELECT * FROM warehousestock";
                                             $rs = mysqli_query($conn, $query) or die(mysqli_error($conn));
+                                            while ($rc = mysqli_fetch_assoc($rs)) {
+                                                $query = "SELECT * FROM warehousestock";
+
+                                            }
                                             while ($rc = mysqli_fetch_assoc($rs)) {
                                                 echo "<tr>
                                                         <td>{$rc['WarehouseStockId']}</td>
