@@ -126,13 +126,13 @@
                                     <i class="fa fa-folder-open fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">Comments</div>
+                                    <div class="huge">View Order</div>
                                 </div>
                             </div>
                         </div>
                         <a href="#">
                             <div class="panel-footer">
-                                <span class="pull-left">View Details</span>
+                                <span class="pull-left">List delivery orders</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>
@@ -168,13 +168,13 @@
                                     <i class="fa fa-shopping-cart fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">Orders</div>
+                                    <div class="huge">New Stocks</div>
                                 </div>
                             </div>
                         </div>
                         <a href="#">
                             <div class="panel-footer">
-                                <span class="pull-left">View Details</span>
+                                <span class="pull-left">Add stock into warehouse</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>
@@ -189,13 +189,13 @@
                                     <i class="fa fa-support fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">Tickets</div>
+                                    <div class="huge">Remove</div>
                                 </div>
                             </div>
                         </div>
                         <a href="#">
                             <div class="panel-footer">
-                                <span class="pull-left">View Details</span>
+                                <span class="pull-left">Remove old stock in warehouse</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>
@@ -208,20 +208,25 @@
                 <div class="col">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <i class="fa fa-bar-chart-o fa-fw"></i> Warehouse Stock
+                            <i class="fa fa-bar-chart-o fa-fw"></i> Delivery orders
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
                             <div class="row">
-                                <div class="col">
+                                <div class="col-lg-12">
                                     <div class="table-responsive">
                                         <table id="warehousetable" class="table table-bordered table-hover table-striped">
                                             <thead>
                                             <tr>
-                                                <th>WarehouseStockId</th>
+                                                <th>OrderId</th>
+                                                <th>RestaurantId</th>
+                                                <th>SupplierStockId</th>
                                                 <th>WarehouseStaffId</th>
-                                                <th>StockId</th>
                                                 <th>Amount</th>
+                                                <th>Approved</th>
+                                                <th>PurchaseDate</th>
+                                                <th>DeliveryDate</th>
+                                                <th>ReceivedDate</th>
                                             </tr>
                                             </thead>
                                             <tbody>
@@ -230,15 +235,17 @@
                                             $query = "SELECT * FROM warehousestock";
                                             $rs = mysqli_query($conn, $query) or die(mysqli_error($conn));
                                             while ($rc = mysqli_fetch_assoc($rs)) {
-                                                $query = "SELECT * FROM warehousestock";
-
-                                            }
-                                            while ($rc = mysqli_fetch_assoc($rs)) {
+                                                $nameAdapter = "SELECT Name FROM stock WHERE StockId = {$rc['StockId']}";
                                                 echo "<tr>
-                                                        <td>{$rc['WarehouseStockId']}</td>
+                                                        <td>{$rc['OrderId']}</td>
+                                                        <td>{$rc['RestaurantId']}</td>
+                                                        <td>{$rc['SupplierStockId']}</td>
+                                                        <td>{$rc['ManagerId']}</td>
                                                         <td>{$rc['WarehouseStaffId']}</td>
-                                                        <td>{$rc['StockId']}</td>
                                                         <td>{$rc['Amount']}</td>
+                                                        <td>{$rc['PurchaseDate']}</td>
+                                                        <td>{$rc['DeliveryDate']}</td>       
+                                                        <td>{$rc['ReceivedDate']}</td>                                                                                                   
                                                     </tr>";
                                             }
                                             ?>
