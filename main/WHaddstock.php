@@ -60,35 +60,36 @@ session_start();
         });
     </script>
 
+    <!--    <script src="script/Time.js"></script>-->
+    <script src="script/Time.js"></script>
+
 </head>
-
-<body>
-
+<body onload="startTime()">
 <div class="wrapper" style="background-color: rgb(47, 49, 54)">
     <nav id="sidebar" style="background-color: rgb(47, 49, 54)">
         <div class="sidebar-header" style="background-color: rgb(32, 34, 37)">
-            <h3>Header as you want </h3>
+            <?php echo "<h3>" . $_SESSION['userType'] . "</h3>"; ?>
         </div>
-        <ul class="list-unstyled components"  style="background-color: rgb(47, 49, 54); border-bottom-width: 0px" >
-            <p>Dummy Heading</p>
-            <li>
-                <a href="#menu">Animación</a>
-            </li>
-            <li>
-                <a href="#menu">Ilustración</a>
+        <ul class="list-unstyled components" style="background-color: rgb(47, 49, 54); border-bottom-width: 0px">
+            <?php echo "<p>" . "Hello, " . $_SESSION['userName'] . "</p>"; ?>
+            <li class="active">
+                <a href="#menu">Profile</a>
 
             </li>
             <li>
-                <a href="#">Interacción</a>
+                <a href="WHvieworder.php">View orders</a>
             </li>
             <li>
-                <a href="#">Blog</a>
+                <a href="WHmodifyAmount.php">Modify orders</a>
             </li>
             <li>
-                <a href="#">Acerca</a>
+                <a href="WHaddstock.php">Add new stocks</a>
             </li>
             <li>
-                <a href="#">Logout</a>
+                <a href="WHremoveoldstock.php">Remove old stocks</a>
+            </li>
+            <li>
+                <a href="#">logout</a>
             </li>
         </ul>
     </nav>
@@ -99,7 +100,9 @@ session_start();
         <nav class="navbar navbar-default navbar-static-top" role="navigation"
              style="margin-bottom: 0; background-color: rgb(54, 57, 62);">
             <div class="navbar-header">
-                <a class="navbar-brand" href="warehouse.php" style="color: aliceblue">SB Admin v2.0</a>
+                <a class="navbar-brand" href="warehouse.php"
+                   style="color: aliceblue">Hello, <?php echo $_SESSION['userName']; ?>! Now Time is: <span
+                            id="timeHeader"></span></a>
             </div>
         </nav>
 
@@ -128,13 +131,13 @@ session_start();
                                     <i class="fa fa-folder-open fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">Comments</div>
+                                    <div class="huge">View Order</div>
                                 </div>
                             </div>
                         </div>
-                        <a href="#">
+                        <a href="WHvieworder.php">
                             <div class="panel-footer">
-                                <span class="pull-left">View Details</span>
+                                <span class="pull-left">List delivery orders</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>
@@ -155,7 +158,7 @@ session_start();
                         </div>
                         <a href="WHmodifyAmount.php">
                             <div class="panel-footer">
-                                <span class="pull-left">View Details</span>
+                                <span class="pull-left">Modify the stock amount in warehouse</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>
@@ -170,13 +173,13 @@ session_start();
                                     <i class="fa fa-shopping-cart fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">Orders</div>
+                                    <div class="huge">New Stocks</div>
                                 </div>
                             </div>
                         </div>
-                        <a href="#">
+                        <a href="WHaddstock.php">
                             <div class="panel-footer">
-                                <span class="pull-left">View Details</span>
+                                <span class="pull-left">Add stock into warehouse</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>
@@ -191,13 +194,13 @@ session_start();
                                     <i class="fa fa-support fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">Tickets</div>
+                                    <div class="huge">Remove</div>
                                 </div>
                             </div>
                         </div>
-                        <a href="#">
+                        <a href="WHremoveoldstock.php">
                             <div class="panel-footer">
-                                <span class="pull-left">View Details</span>
+                                <span class="pull-left">Remove old stock in warehouses</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>
@@ -214,7 +217,7 @@ session_start();
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
-                            <div class="col-lg-14">
+                            <div class="col-lg-14" style="padding-left: 35%; padding-right: 35%">
                                 <form role="form" method="post" action="WHaddstock_process.php" id="addStock">
                                     <div class="form-group">
                                         <label>Stock Name</label>
@@ -233,23 +236,65 @@ session_start();
                                     <div class="form-group">
                                         <label for="disabledSelect">Staff ID</label>
                                         <?php
-                                         echo "<input class='form-control' id='staffId' name='staffId' type='text' placeholder={$_SESSION['userId']} disabled>";
+                                        echo "<input class='form-control' id='staffId' name='staffId' type='text' placeholder={$_SESSION['userId']} disabled>";
                                         ?>
                                     </div>
                                     <div class="form-group">
                                         <label>Amount</label>
-                                        <input class="form-control" id="amount" name="amount" placeholder="Enter Amount">
+                                        <input class="form-control" id="amount" name="amount"
+                                               placeholder="Enter Amount" onchange="display_alert()">
                                     </div>
                                     <input type="submit" id="submit" class="btn btn-primary" value="Confirm" onclick="display_alert()">
+                                    <script>
+                                        function display_alert() {
+                                            var amountCheck = document.getElementById("amount").value;
+                                            if (amountCheck == "") {
+                                                alert("Amount cant be empty!");
+                                                return false;
+                                            }
+                                        }
+                                    </script>
                                 </form>
-                                <script>
-                                    function display_alert()
-                                    {
-                                        var amountCheck = document.forms["addStock"]["amount"].value;
-                                        if (amountCheck == null)
-                                            alert("Amount cant be empty!");
-                                    }
-                                </script>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <i class="fa fa-bar-chart-o fa-fw"></i> Warehouse Stock
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="col-lg-14">
+                                <div class="col">
+                                    <div class="table-responsive">
+                                        <table id="warehousetable" class="table table-bordered table-hover table-striped">
+                                            <thead>
+                                            <tr>
+                                                <th>Warehouse Stock ID</th>
+                                                <th>Amount</th>
+                                                <th>Name</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <?php
+                                            require_once("Connections/conn.php");
+                                            $query = "SELECT WarehouseStockId, Amount, Name 
+                                                          FROM WarehouseStock INNER JOIN STOCK 
+                                                          ON WarehouseStock.StockId = Stock.StockId 
+                                                          WHERE WarehouseStock.WarehouseStaffId = '{$_SESSION['userId']}'";
+                                            $rs = mysqli_query($conn, $query) or die(mysqli_error($conn));
+                                            while ($rc = mysqli_fetch_assoc($rs)) {
+                                                echo "<tr>
+                                                        <td>{$rc['WarehouseStockId']}</td>
+                                                        <td>{$rc['Amount']}</td>
+                                                        <td>{$rc['Name']}</td>
+                                                    </tr>";
+                                            }
+                                            ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

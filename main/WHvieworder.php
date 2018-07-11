@@ -17,28 +17,18 @@ session_start();
     <!-- Scrollbar Custom CSS -->
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
-
     <link rel="stylesheet"
           href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
-
     <link rel="stylesheet"
           href="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js">
-
     <link rel="stylesheet"
           href="css/index.css">
-
-    <!-- Custom CSS -->
     <link rel="stylesheet"
           href="dist/css/sb-admin-2.css">
-
-    <!-- Custom Fonts -->
     <link rel="stylesheet" type="text/css" \
           href="vendor/font-awesome/css/font-awesome.min.css">
-
     <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
-    <!-- Bootstrap Js CDN -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <!-- jQuery Custom Scroller CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
@@ -70,36 +60,35 @@ session_start();
             });
         } );
     </script>
-
+    <script src="script/Time.js"></script>
 </head>
 
-<body>
+<body onload="startTime()">
 
 <div class="wrapper" style="background-color: rgb(47, 49, 54)">
     <nav id="sidebar" style="background-color: rgb(47, 49, 54)">
         <div class="sidebar-header" style="background-color: rgb(32, 34, 37)">
-            <h3>Header as you want </h3>
+            <?php echo "<h3>".$_SESSION['userType']."</h3>";?>
         </div>
         <ul class="list-unstyled components"  style="background-color: rgb(47, 49, 54); border-bottom-width: 0px" >
-            <p>Dummy Heading</p>
-            <li>
-                <a href="#menu">Animación</a>
+            <?php echo "<p>"."Hello, ".$_SESSION['userName']."</p>"; ?>
+            <li >
+                <a href="#menu">Profile</a>
             </li>
             <li>
-                <a href="#menu">Ilustración</a>
-
+                <a href="WHvieworder.php">View orders</a>
             </li>
             <li>
-                <a href="#">Interacción</a>
+                <a href="WHmodifyAmount.php">Modify orders</a>
             </li>
             <li>
-                <a href="#">Blog</a>
+                <a href="WHaddstock.php">Add new stocks</a>
             </li>
             <li>
-                <a href="#">Acerca</a>
+                <a href="WHremoveoldstock.php">Remove old stocks</a>
             </li>
             <li>
-                <a href="#">Logout</a>
+                <a href="#">logout</a>
             </li>
         </ul>
     </nav>
@@ -110,7 +99,7 @@ session_start();
         <nav class="navbar navbar-default navbar-static-top" role="navigation"
              style="margin-bottom: 0; background-color: rgb(54, 57, 62);">
             <div class="navbar-header">
-                <a class="navbar-brand" href="warehouse.php" style="color: aliceblue">SB Admin v2.0</a>
+                <a class="navbar-brand" href="warehouse.php" style="color: aliceblue">Hello, <?php echo $_SESSION['userName']; ?>! Now Time is: <span id="timeHeader"></span></a>
             </div>
         </nav>
 
@@ -143,7 +132,7 @@ session_start();
                                 </div>
                             </div>
                         </div>
-                        <a href="#">
+                        <a href="WHvieworder.php">
                             <div class="panel-footer">
                                 <span class="pull-left">List delivery orders</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -166,7 +155,7 @@ session_start();
                         </div>
                         <a href="WHmodifyAmount.php">
                             <div class="panel-footer">
-                                <span class="pull-left">View Details</span>
+                                <span class="pull-left">Modify the stock amount in warehouse</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>
@@ -185,7 +174,7 @@ session_start();
                                 </div>
                             </div>
                         </div>
-                        <a href="#">
+                        <a href="WHaddstock.php">
                             <div class="panel-footer">
                                 <span class="pull-left">Add stock into warehouse</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -206,7 +195,7 @@ session_start();
                                 </div>
                             </div>
                         </div>
-                        <a href="#">
+                        <a href="WHremoveoldstock.php">
                             <div class="panel-footer">
                                 <span class="pull-left">Remove old stock in warehouse</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -280,6 +269,7 @@ session_start();
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
 </div>

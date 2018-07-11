@@ -22,15 +22,22 @@ if (mysqli_num_rows($rs) <= 0) {
     $rc = mysqli_fetch_assoc($rs);
     $_SESSION['userId'] = $userId;
     $_SESSION['userType'] = $rc['TableName'];
-    mysqli_free_result($rs);
-    mysqli_close($conn);
 
     if ($_SESSION['userType'] == 'Suppliers') {
+        mysqli_free_result($rs);
+        mysqli_close($conn);
         header("Location:supplier.php");
     }
     if ($_SESSION['userType'] == 'WarehouseStaff') {
+        $nameAdapter = "SELECT Name FROM warehousestaff WHERE WarehouseStaffId = {$_SESSION['userId']}";
+        $rs = mysqli_query($conn, $nameAdapter) or die (mysqli_error($conn));
+        $rc = mysqli_fetch_assoc($rs);
+        $_SESSION['userName'] = $rc['Name'];
+        mysqli_free_result($rs);
+        mysqli_close($conn);
         header("Location:warehouse.php");
     }
+
     exit();
 }
 

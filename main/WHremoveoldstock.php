@@ -51,35 +51,35 @@ session_start();
             });
         });
     </script>
-
+    <script src="script/Time.js"></script>
 </head>
 
-<body>
+<body onload="startTime()">
 <div class="wrapper" style="background-color: rgb(47, 49, 54)">
     <nav id="sidebar" style="background-color: rgb(47, 49, 54)">
         <div class="sidebar-header" style="background-color: rgb(32, 34, 37)">
-            <h3>Header as you want </h3>
+            <?php echo "<h3>".$_SESSION['userType']."</h3>";?>
         </div>
         <ul class="list-unstyled components"  style="background-color: rgb(47, 49, 54); border-bottom-width: 0px" >
-            <p>Dummy Heading</p>
-            <li>
-                <a href="#menu">Animación</a>
-            </li>
-            <li>
-                <a href="#menu">Ilustración</a>
+            <?php echo "<p>"."Hello, ".$_SESSION['userName']."</p>"; ?>
+            <li class="active">
+                <a href="#menu">Profile</a>
 
             </li>
             <li>
-                <a href="#">Interacción</a>
+                <a href="WHvieworder.php">View orders</a>
             </li>
             <li>
-                <a href="#">Blog</a>
+                <a href="WHmodifyAmount.php">Modify orders</a>
             </li>
             <li>
-                <a href="#">Acerca</a>
+                <a href="WHaddstock.php">Add new stocks</a>
             </li>
             <li>
-                <a href="#">Logout</a>
+                <a href="WHremoveoldstock.php">Remove old stocks</a>
+            </li>
+            <li>
+                <a href="#">logout</a>
             </li>
         </ul>
     </nav>
@@ -90,8 +90,7 @@ session_start();
         <nav class="navbar navbar-default navbar-static-top" role="navigation"
              style="margin-bottom: 0; background-color: rgb(54, 57, 62);">
             <div class="navbar-header">
-                <a class="navbar-brand" href="warehouse.php" style="color: aliceblue">SB Admin v2.0</a>
-            </div>
+                <a class="navbar-brand" href="warehouse.php" style="color: aliceblue">Hello, <?php echo $_SESSION['userName']; ?>! Now Time is: <span id="timeHeader"></span></a>            </div>
         </nav>
 
         <div class="row" style="">
@@ -119,13 +118,13 @@ session_start();
                                     <i class="fa fa-folder-open fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">Comments</div>
+                                    <div class="huge">View Order</div>
                                 </div>
                             </div>
                         </div>
-                        <a href="#">
+                        <a href="WHvieworder.php">
                             <div class="panel-footer">
-                                <span class="pull-left">View Details</span>
+                                <span class="pull-left">List delivery orders</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>
@@ -146,7 +145,7 @@ session_start();
                         </div>
                         <a href="WHmodifyAmount.php">
                             <div class="panel-footer">
-                                <span class="pull-left">View Details</span>
+                                <span class="pull-left">Modify the stock amount in warehouse</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>
@@ -161,13 +160,13 @@ session_start();
                                     <i class="fa fa-shopping-cart fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">Orders</div>
+                                    <div class="huge">New Stocks</div>
                                 </div>
                             </div>
                         </div>
-                        <a href="#">
+                        <a href="WHmodifyAmount.php">
                             <div class="panel-footer">
-                                <span class="pull-left">View Details</span>
+                                <span class="pull-left">Add stock into warehouse</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>
@@ -182,13 +181,13 @@ session_start();
                                     <i class="fa fa-support fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">Tickets</div>
+                                    <div class="huge">Remove</div>
                                 </div>
                             </div>
                         </div>
-                        <a href="#">
+                        <a href="WHremoveoldstock.php">
                             <div class="panel-footer">
-                                <span class="pull-left">View Details</span>
+                                <span class="pull-left">Remove old stock in Warehouse</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>

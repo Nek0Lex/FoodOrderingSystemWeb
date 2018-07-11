@@ -20,7 +20,7 @@ $warehouseStockId =$_SESSION['userId'].$rc['StockId'];
 $insertquery = "INSERT INTO warehousestock (WarehouseStockId, WarehouseStaffId, StockId, Amount) VALUES ($warehouseStockId, {$_SESSION['userId']}, {$rc['StockId']}, $amount);";
 if (!mysqli_query($conn, $insertquery)){
     echo "<script language='JavaScript'>
-    window.alert('Item was duplicated! Please check input again!');
+    window.alert('Error occured! Please check input again!');
     window.location.href='WHaddstock.php';
     </script>";
 } else {
