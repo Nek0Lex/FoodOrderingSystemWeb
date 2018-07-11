@@ -24,6 +24,7 @@ if (mysqli_num_rows($rs) <= 0) {
     $_SESSION['userType'] = $rc['TableName'];
 
     if ($_SESSION['userType'] == 'Suppliers') {
+        //$nameAdapter
         mysqli_free_result($rs);
         mysqli_close($conn);
         header("Location:supplier.php");

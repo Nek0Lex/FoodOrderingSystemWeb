@@ -79,7 +79,9 @@ session_start();
                 <a href="WHremoveoldstock.php">Remove old stocks</a>
             </li>
             <li>
-                <a href="#">logout</a>
+                <?php
+                echo "<a href='login.html'>logout</a>";
+                ?>
             </li>
         </ul>
     </nav>

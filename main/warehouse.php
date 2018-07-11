@@ -88,7 +88,9 @@ $name = $rc['Name'];
                 <a href="WHremoveoldstock.php">Remove old stocks</a>
             </li>
             <li>
-                <a href="#">logout</a>
+                <?php
+                    echo "<a href='login.html'>logout</a>";
+                ?>
             </li>
 
         </ul>
@@ -221,23 +223,24 @@ $name = $rc['Name'];
                                         <table class="table table-bordered table-hover table-striped" id="warehousetable">
                                             <thead>
                                             <tr>
-                                                <th>WarehouseStockId</th>
-                                                <th>WarehouseStaffId</th>
-                                                <th>StockId</th>
+                                                <th>Warehouse Stock ID</th>
                                                 <th>Amount</th>
+                                                <th>Name</th>
                                             </tr>
                                             </thead>
                                             <tbody>
                                             <?php
                                             require_once("Connections/conn.php");
-                                            $query = "SELECT * FROM warehousestock";
+                                            $query = "SELECT WarehouseStockId, Amount, Name 
+                                                          FROM WarehouseStock INNER JOIN STOCK 
+                                                          ON WarehouseStock.StockId = Stock.StockId 
+                                                          WHERE WarehouseStock.WarehouseStaffId = '{$_SESSION['userId']}'";
                                             $rs = mysqli_query($conn, $query) or die(mysqli_error($conn));
                                             while ($rc = mysqli_fetch_assoc($rs)) {
                                                 echo "<tr>
                                                         <td>{$rc['WarehouseStockId']}</td>
-                                                        <td>{$rc['WarehouseStaffId']}</td>
-                                                        <td>{$rc['StockId']}</td>
                                                         <td>{$rc['Amount']}</td>
+                                                        <td>{$rc['Name']}</td>
                                                     </tr>";
                                             }
                                             ?>
