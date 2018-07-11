@@ -7,13 +7,10 @@ session_start();
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet"
           href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <!-- Our Custom CSS -->
     <link rel="stylesheet"
           href="style2.css">
-    <!-- Scrollbar Custom CSS -->
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
 
@@ -26,18 +23,14 @@ session_start();
     <link rel="stylesheet"
           href="css/index.css">
 
-    <!-- Custom CSS -->
     <link rel="stylesheet"
           href="dist/css/sb-admin-2.css">
 
-    <!-- Custom Fonts -->
-    <link rel="stylesheet" type="text/css" \
+    <link rel="stylesheet" type="text/css"
           href="vendor/font-awesome/css/font-awesome.min.css">
 
     <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
-    <!-- Bootstrap Js CDN -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <!-- jQuery Custom Scroller CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
 
     <script src="vendor/datatables/js/jquery.dataTables.min.js"></script>
@@ -53,14 +46,11 @@ session_start();
             });
         });
     </script>
-
     <script>
         $(document).ready(function () {
             $('#warehousetable').DataTable();
         });
     </script>
-
-    <!--    <script src="script/Time.js"></script>-->
     <script src="script/Time.js"></script>
 
 </head>
@@ -72,9 +62,8 @@ session_start();
         </div>
         <ul class="list-unstyled components" style="background-color: rgb(47, 49, 54); border-bottom-width: 0px">
             <?php echo "<p>" . "Hello, " . $_SESSION['userName'] . "</p>"; ?>
-            <li class="active">
+            <li ">
                 <a href="#menu">Profile</a>
-
             </li>
             <li>
                 <a href="WHvieworder.php">View orders</a>
@@ -121,7 +110,6 @@ session_start();
                 </div>
             </div>
         </div>
-        <!-- /.col-lg-12 -->
 
         <div id="page">
             <div class="row">
@@ -210,14 +198,12 @@ session_start();
                     </div>
                 </div>
             </div>
-            <!-- /.row -->
             <div class="col-lg-14">
                 <div class="col">
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <i class="fa fa-plus fa-fw"></i> Add Warehouse Stock
                         </div>
-                        <!-- /.panel-heading -->
                         <div class="panel-body">
                             <div class="col-lg-14" style="padding-left: 35%; padding-right: 35%">
                                 <form role="form" method="post" action="WHaddstock_process.php" id="addStock">

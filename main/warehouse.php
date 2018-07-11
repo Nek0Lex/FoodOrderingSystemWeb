@@ -13,13 +13,10 @@ $name = $rc['Name'];
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet"
           href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <!-- Our Custom CSS -->
     <link rel="stylesheet"
           href="style2.css">
-    <!-- Scrollbar Custom CSS -->
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
     <link rel="stylesheet"
@@ -30,7 +27,7 @@ $name = $rc['Name'];
           href="css/index.css">
     <link rel="stylesheet"
           href="dist/css/sb-admin-2.css">
-    <link rel="stylesheet" type="text/css" \
+    <link rel="stylesheet" type="text/css"
           href="vendor/font-awesome/css/font-awesome.min.css">
     <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -64,14 +61,13 @@ $name = $rc['Name'];
 <body onload="startTime()">
 
 <div class="wrapper" style="background-color: rgb(47, 49, 54)">
-    <!-- Sidebar Holder -->
     <nav id="sidebar" style="background-color: rgb(47, 49, 54)">
         <div class="sidebar-header" style="background-color: rgb(32, 34, 37)">
-            <?php echo "<h3>".$_SESSION['userType']."</h3>";?>
+            <?php echo "<h3>" . $_SESSION['userType'] . "</h3>"; ?>
         </div>
 
         <ul class="list-unstyled components" style="background-color: rgb(47, 49, 54); border-bottom-width: 0px">
-            <?php echo "<p>"."Hello, ".$_SESSION['userName']."</p>"; ?>
+            <?php echo "<p>" . "Hello, " . $_SESSION['userName'] . "</p>"; ?>
             <li>
                 <a href="#menu">Profile</a>
             </li>
@@ -89,7 +85,7 @@ $name = $rc['Name'];
             </li>
             <li>
                 <?php
-                    echo "<a href='login.html'>logout</a>";
+                echo "<a href='login.html'>logout</a>";
                 ?>
             </li>
 
@@ -101,9 +97,10 @@ $name = $rc['Name'];
         <nav class="navbar navbar-default navbar-static-top" role="navigation"
              style="margin-bottom: 0; background-color: rgb(54, 57, 62);">
             <div class="navbar-header">
-                <a class="navbar-brand" href="warehouse.php" style="color: aliceblue">Hello, <?php echo $_SESSION['userName']; ?>! Now Time is: <span id="timeHeader"></span></a>
+                <a class="navbar-brand" href="warehouse.php"
+                   style="color: aliceblue">Hello, <?php echo $_SESSION['userName']; ?>! Now Time is: <span
+                            id="timeHeader"></span></a>
             </div>
-
         </nav>
 
         <div class="row" style="">
@@ -119,7 +116,6 @@ $name = $rc['Name'];
                 </div>
             </div>
         </div>
-        <!-- /.col-lg-12 -->
 
         <div id="page">
             <div class="row">
@@ -208,7 +204,6 @@ $name = $rc['Name'];
                     </div>
                 </div>
             </div>
-            <!-- /.row -->
             <div class="row">
                 <div class="col-lg-8">
 
@@ -220,7 +215,8 @@ $name = $rc['Name'];
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="table-responsive">
-                                        <table class="table table-bordered table-hover table-striped" id="warehousetable">
+                                        <table class="table table-bordered table-hover table-striped"
+                                               id="warehousetable">
                                             <thead>
                                             <tr>
                                                 <th>Warehouse Stock ID</th>
@@ -251,40 +247,41 @@ $name = $rc['Name'];
                             </div>
                         </div>
                     </div>
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <i class="fa fa-bar-chart-o fa-fw"></i> Delivery orders
-                                </div>
-                                <!-- /.panel-heading -->
-                                <div class="panel-body">
-                                    <div class="row">
-                                        <div class="col-lg-12">
-                                            <div class="table-responsive">
-                                                <table id="warehousetable" class="table table-bordered table-hover table-striped">
-                                                    <thead>
-                                                    <tr>
-                                                        <th>OrderId</th>
-                                                        <th>StockName</th>
-                                                        <th>SuppliersName</th>
-                                                        <th>OrdersAmount</th>
-                                                        <th>PurchaseDate</th>
-                                                        <th>DeliveryDate</th>
-                                                        <th>ReceivedDate</th>
-                                                    </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                    <?php
-                                                    require_once("Connections/conn.php");
-                                                    $query = "SELECT OrderId, Stock.Name StockName, Suppliers.Name SuppliersName, Orders.Amount OrdersAmount, PurchaseDate, DeliveryDate, ReceivedDate FROM Orders 
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <i class="fa fa-bar-chart-o fa-fw"></i> Delivery orders
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="table-responsive">
+                                        <table id="warehousetable"
+                                               class="table table-bordered table-hover table-striped">
+                                            <thead>
+                                            <tr>
+                                                <th>OrderId</th>
+                                                <th>StockName</th>
+                                                <th>SuppliersName</th>
+                                                <th>OrdersAmount</th>
+                                                <th>PurchaseDate</th>
+                                                <th>DeliveryDate</th>
+                                                <th>ReceivedDate</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <?php
+                                            require_once("Connections/conn.php");
+                                            $query = "SELECT OrderId, Stock.Name StockName, Suppliers.Name SuppliersName, Orders.Amount OrdersAmount, PurchaseDate, DeliveryDate, ReceivedDate FROM Orders 
                                                     INNER JOIN SupplierStock ON Orders.SupplierStockId = SupplierStock.SupplierStockId 
                                                     INNER JOIN Suppliers ON SupplierStock.SupplierId = Suppliers.SupplierId 
                                                     INNER JOIN Stock ON SupplierStock.StockId = Stock.StockId
                                                     WHERE WarehouseStaffId = '{$_SESSION['userId']}'";
-                                                    $rs = mysqli_query($conn, $query) or die(mysqli_error($conn));
-                                                    $status = null;
-                                                    $datestatus = null;
-                                                    while ($rc = mysqli_fetch_assoc($rs)) {
-                                                        echo "<tr>
+                                            $rs = mysqli_query($conn, $query) or die(mysqli_error($conn));
+                                            $status = null;
+                                            $datestatus = null;
+                                            while ($rc = mysqli_fetch_assoc($rs)) {
+                                                echo "<tr>
                                                         <td>{$rc['OrderId']}</td>
                                                         <td>{$rc['StockName']}</td>
                                                         <td>{$rc['SuppliersName']}</td>
@@ -294,23 +291,20 @@ $name = $rc['Name'];
                                                         <td>{$rc['ReceivedDate']}</td>
                                                         </form>                                                                                                
                                                     </tr>";
-                                                    }
-                                                    ?>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
+                                            }
+                                            ?>
+                                            </tbody>
+                                        </table>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- /.panel -->
+                </div>
             </div>
-            <!-- /.row -->
         </div>
-        <!-- /#page-wrapper -->
-    </div>
+    </div
+</div>
 </div>
 
 </body>

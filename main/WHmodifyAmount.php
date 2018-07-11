@@ -8,8 +8,6 @@ session_start();
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-
     <link rel="stylesheet"
           href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet"
@@ -24,7 +22,7 @@ session_start();
           href="css/index.css">
     <link rel="stylesheet"
           href="dist/css/sb-admin-2.css">
-    <link rel="stylesheet" type="text/css" \
+    <link rel="stylesheet" type="text/css"
           href="vendor/font-awesome/css/font-awesome.min.css">
     <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -59,10 +57,10 @@ session_start();
 <div class="wrapper" style="background-color: rgb(47, 49, 54)">
     <nav id="sidebar" style="background-color: rgb(47, 49, 54)">
         <div class="sidebar-header" style="background-color: rgb(32, 34, 37)">
-            <?php echo "<h3>".$_SESSION['userType']."</h3>";?>
+            <?php echo "<h3>" . $_SESSION['userType'] . "</h3>"; ?>
         </div>
-        <ul class="list-unstyled components"  style="background-color: rgb(47, 49, 54); border-bottom-width: 0px" >
-            <?php echo "<p>"."Hello, ".$_SESSION['userName']."</p>"; ?>
+        <ul class="list-unstyled components" style="background-color: rgb(47, 49, 54); border-bottom-width: 0px">
+            <?php echo "<p>" . "Hello, " . $_SESSION['userName'] . "</p>"; ?>
             <li>
                 <a href="#menu">Profile</a>
             </li>
@@ -92,7 +90,9 @@ session_start();
         <nav class="navbar navbar-default navbar-static-top" role="navigation"
              style="margin-bottom: 0; background-color: rgb(54, 57, 62);">
             <div class="navbar-header">
-                <a class="navbar-brand" href="warehouse.php" style="color: aliceblue">Hello, <?php echo $_SESSION['userName']; ?>! Now Time is: <span id="timeHeader"></span></a>            </div>
+                <a class="navbar-brand" href="warehouse.php"
+                   style="color: aliceblue">Hello, <?php echo $_SESSION['userName']; ?>! Now Time is: <span
+                            id="timeHeader"></span></a></div>
         </nav>
 
         <div class="row" style="">
@@ -108,7 +108,6 @@ session_start();
                 </div>
             </div>
         </div>
-        <!-- /.col-lg-12 -->
 
         <div id="page">
             <div class="row">
@@ -197,19 +196,18 @@ session_start();
                     </div>
                 </div>
             </div>
-            <!-- /.row -->
             <div class="col-lg-14">
                 <div class="col">
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <i class="fa fa-bar-chart-o fa-fw"></i> Warehouse Stock
                         </div>
-                        <!-- /.panel-heading -->
                         <div class="panel-body">
                             <div class="col-lg-14">
                                 <div class="col">
                                     <div class="table-responsive">
-                                        <table id="warehousetable" class="table table-bordered table-hover table-striped">
+                                        <table id="warehousetable"
+                                               class="table table-bordered table-hover table-striped">
                                             <thead>
                                             <tr>
                                                 <th>Warehouse Stock ID</th>
@@ -236,7 +234,7 @@ session_start();
                                                         <input id='amount' type=\"number\" name=\"amount\" min=\"0\" max=\"9999\" value='{$rc['Amount']}'>
                                                         </td>
                                                         <td>{$rc['Name']}</td>
-                                                        <td><a id='modify' href='WHmodifyAmount_process.php?id=".$rc['WarehouseStockId']."'><button id='btn_modify' type=\"submit\" class=\"btn btn-primary\" style='background-color: rgb(114,137,218)' >Modify</button></a></td>
+                                                        <td><a id='modify' href='WHmodifyAmount_process.php?id=" . $rc['WarehouseStockId'] . "'><button id='btn_modify' type=\"submit\" class=\"btn btn-primary\" style='background-color: rgb(114,137,218)' >Modify</button></a></td>
                                                         </form>
                                                     </tr>";
                                             }

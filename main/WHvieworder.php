@@ -8,13 +8,10 @@ session_start();
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet"
           href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <!-- Our Custom CSS -->
     <link rel="stylesheet"
           href="style2.css">
-    <!-- Scrollbar Custom CSS -->
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
     <link rel="stylesheet"
@@ -54,11 +51,11 @@ session_start();
     </script>
 
     <script>
-        $( function() {
-            $( "#datepicker" ).datepicker({
+        $(function () {
+            $("#datepicker").datepicker({
                 dateFormat: "yy-mm-dd"
             });
-        } );
+        });
     </script>
     <script src="script/Time.js"></script>
 </head>
@@ -68,11 +65,11 @@ session_start();
 <div class="wrapper" style="background-color: rgb(47, 49, 54)">
     <nav id="sidebar" style="background-color: rgb(47, 49, 54)">
         <div class="sidebar-header" style="background-color: rgb(32, 34, 37)">
-            <?php echo "<h3>".$_SESSION['userType']."</h3>";?>
+            <?php echo "<h3>" . $_SESSION['userType'] . "</h3>"; ?>
         </div>
-        <ul class="list-unstyled components"  style="background-color: rgb(47, 49, 54); border-bottom-width: 0px" >
-            <?php echo "<p>"."Hello, ".$_SESSION['userName']."</p>"; ?>
-            <li >
+        <ul class="list-unstyled components" style="background-color: rgb(47, 49, 54); border-bottom-width: 0px">
+            <?php echo "<p>" . "Hello, " . $_SESSION['userName'] . "</p>"; ?>
+            <li>
                 <a href="#menu">Profile</a>
             </li>
             <li>
@@ -101,7 +98,9 @@ session_start();
         <nav class="navbar navbar-default navbar-static-top" role="navigation"
              style="margin-bottom: 0; background-color: rgb(54, 57, 62);">
             <div class="navbar-header">
-                <a class="navbar-brand" href="warehouse.php" style="color: aliceblue">Hello, <?php echo $_SESSION['userName']; ?>! Now Time is: <span id="timeHeader"></span></a>
+                <a class="navbar-brand" href="warehouse.php"
+                   style="color: aliceblue">Hello, <?php echo $_SESSION['userName']; ?>! Now Time is: <span
+                            id="timeHeader"></span></a>
             </div>
         </nav>
 
@@ -118,7 +117,6 @@ session_start();
                 </div>
             </div>
         </div>
-        <!-- /.col-lg-12 -->
 
         <div id="page">
             <div class="row">
@@ -207,19 +205,18 @@ session_start();
                     </div>
                 </div>
             </div>
-            <!-- /.row -->
             <div class="col-lg-14">
                 <div class="col">
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <i class="fa fa-bar-chart-o fa-fw"></i> Delivery orders
                         </div>
-                        <!-- /.panel-heading -->
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="table-responsive">
-                                        <table id="warehousetable" class="table table-bordered table-hover table-striped">
+                                        <table id="warehousetable"
+                                               class="table table-bordered table-hover table-striped">
                                             <thead>
                                             <tr>
                                                 <th>OrderId</th>
@@ -244,7 +241,7 @@ session_start();
                                             $status = null;
                                             $datestatus = null;
                                             while ($rc = mysqli_fetch_assoc($rs)) {
-                                                if ($rc['ReceivedDate'] != null){
+                                                if ($rc['ReceivedDate'] != null) {
                                                     $status = "hidden";
                                                     $datestatus = "readonly='true' disabled value='{$rc['ReceivedDate']}'";
                                                 }
