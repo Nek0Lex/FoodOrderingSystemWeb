@@ -60,36 +60,35 @@ session_start();
             $('#suppliertable').DataTable();
         });
     </script>
-
+    <script src="script/Time.js"></script>
 </head>
 
-<body>
+<body onload="startTime()">
 
 <div class="wrapper" style="background-color: rgb(47, 49, 54)">
     <nav id="sidebar" style="background-color: rgb(47, 49, 54)">
         <div class="sidebar-header" style="background-color: rgb(32, 34, 37)">
-            <h3>Header as you want </h3>
+            <?php echo "<h3>".$_SESSION['userType']."</h3>";?>
         </div>
         <ul class="list-unstyled components"  style="background-color: rgb(47, 49, 54); border-bottom-width: 0px" >
-            <p>Dummy Heading</p>
+            <?php echo "<p>"."Hello, ".$_SESSION['userName']."</p>"; ?>
             <li>
-                <a href="#menu">Animación</a>
+                <a href="supplier.php">Profile</a>
+            </li>
+            <li class="active">
+                <a href="supplierOrder.php">View Orders</a>
             </li>
             <li>
-                <a href="#menu">Ilustración</a>
-
+                <a href="supplierOrderUpdate.php">Update Orders</a>
             </li>
             <li>
-                <a href="#">Interacción</a>
+                <a href="supplierStock.php">New Stock</a>
             </li>
             <li>
-                <a href="#">Blog</a>
+                <a href="supplierStockR.php">Remove Stock</a>
             </li>
             <li>
-                <a href="#">Acerca</a>
-            </li>
-            <li>
-                <a href="#">Logout</a>
+                <a href="logout.php">Logout</a>
             </li>
         </ul>
     </nav>
@@ -100,7 +99,7 @@ session_start();
         <nav class="navbar navbar-default navbar-static-top" role="navigation"
              style="margin-bottom: 0; background-color: rgb(54, 57, 62);">
             <div class="navbar-header">
-                <a class="navbar-brand" href="supplier.php" style="color: aliceblue">SB Admin v2.0</a>
+                <a class="navbar-brand" href="supplier.php" style="color: aliceblue">Hello, <?php echo $_SESSION['userName']; ?>! Now Time is: <span id="timeHeader"></a>
             </div>
         </nav>
 
@@ -196,7 +195,7 @@ session_start();
                                 </div>
                             </div>
                         </div>
-                        <a href="#">
+                        <a href="supplierStockR.php">
                             <div class="panel-footer">
                                 <span class="pull-left">Remove old stocks</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>

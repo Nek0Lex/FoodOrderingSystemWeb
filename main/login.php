@@ -24,7 +24,10 @@ if (mysqli_num_rows($rs) <= 0) {
     $_SESSION['userType'] = $rc['TableName'];
 
     if ($_SESSION['userType'] == 'Suppliers') {
-        //$nameAdapter
+        $nameAdapter = "SELECT Name FROM Suppliers WHERE SupplierId = {$_SESSION['userId']}";
+        $rs = mysqli_query($conn, $nameAdapter) or die (mysqli_error($conn));
+        $rc = mysqli_fetch_assoc($rs);
+        $_SESSION['userName'] = $rc['Name'];
         mysqli_free_result($rs);
         mysqli_close($conn);
         header("Location:supplier.php");

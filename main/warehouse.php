@@ -85,7 +85,7 @@ $name = $rc['Name'];
             </li>
             <li>
                 <?php
-                echo "<a href='login.html'>logout</a>";
+                echo "<a href='logout.php'>logout</a>";
                 ?>
             </li>
 
